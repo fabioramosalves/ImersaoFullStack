@@ -53,15 +53,29 @@ garante que a mensagem está no padrão determinado
 - Streams (manipular informações)
 
 
-commands dockers
 
+
+
+commands dockers
 
 docker exec -it simulator bash
 
 
 
 
+docker exec -it kafka-kafka-1 bash
+
+kafka-console-consumer --bootstrap-server=localhost:9092 --topic=route.new-direction
+
+kafka-console-producer --bootstrap-server=localhost:9092 --topic=route.new-direction
+
+kafka-console-consumer --bootstrap-server=localhost:9092 --topic=route.new-position --group=terminal
+
+
+
+
 command go lang
+
 
 go mod init
 go run main.go
