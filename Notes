@@ -65,8 +65,6 @@ docker exec -it simulator bash
 
 docker exec -it kafka-kafka-1 bash
 
-kafka-console-consumer --bootstrap-server=localhost:9092 --topic=route.new-direction
-
 kafka-console-producer --bootstrap-server=localhost:9092 --topic=route.new-direction
 
 kafka-console-consumer --bootstrap-server=localhost:9092 --topic=route.new-position --group=terminal
