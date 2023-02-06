@@ -1,0 +1,50 @@
+- Desenvolver um sistema de entrega que permite visualizar em tempo real o veículo do entregador;
+- Ha a possibilidade de mpultiplos entregadors simultaneamente;
+- Serviço simulador que enviarrá a posição em tempo real de cada entregador;
+- Os dados de cada entreta, bem como as posições, serão armazenadas no Elasticsearch para futuras análises;
+
+
+        Alguns desafios
+
+Para evitar perda de informação caso o serviço backend fique indisponível por alguns
+momentos, não, trabalharemos com REST.
+
+Trabalharemos com o Apache Kafka para o envio e recebimento de dados entre os sistemas;
+
+-------------------
+
+Não é responsabilidade do serviço backend persistir os dados no Elasticsearch. Logo, como armazenar as informações no Elasticsearch?
+
+
+Solução: Utilizaremos o Kafka Connect que também consumirá os dados do simulador e fará inserção
+no Elasticsearch (kibana)
+
+-------------------
+Precisaremos exibir em tempo real a localização de cada entregador
+
+
+Solução: Trabalharemo com websockets. O backend receberá os dados do simulador, e enviará
+as posições para o frontend via Websocket.
+
+
+        Dinâmica do sistema
+
+
+        Tecnologias a serem utilizadas
+
+Simulador: Golang
+
+Backend: Nest.js & Mongo
+
+Frontend: React
+
+Kafka & Kafika Connect
+
+Elasticsearch & Kibana
+
+Docker e Kubernetes
+
+Istio, Kiali, Prometheus & Grafana
+
+
+

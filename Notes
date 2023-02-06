@@ -1,0 +1,69 @@
+O que é um Topico Kafka
+
+- stream de dados que atua como um banco de dados
+- Todos os dados ficam armazenados, ou seja, cada Topic tem se "local" para armazenar seus dados
+- Tópico possui diversas partições
+    - Este tópico é distribuído em varias partições
+    cada partição é definida por um número
+    - Você é obrigado a definir a quantidade de partições quando for criar um Topic.
+
+
+
+Producers: Quem produz a mensagem;
+
+Consumers: Quem consome a mensagem;
+
+
+
+Kafka Cluster
+
+- Conjunto de Brokers na máquina;
+- Cada Broker é um server;
+- Cada Broker é  responsável por armazenar oos dados de uma partição;
+- Cada partição de Topic está distribuído em diferente brokers;
+
+
+Kafka Replication Factor
+
+broker_1 - Topic_1 - Partição 0
+broker_2 - Topic_1 - Partição 1
+broker_3 - Topic_1 - Partição 2
+
+É feita uma cópia das partições no brokers minimizando a perdas de dados
+caso uma máquina cai.
+
+ZooKeeper é responsável pelo rebalanciamento em caso de problemas na saúde dos 
+servidores;
+
+
+O Kafka é responsável por direcionar para qual broker será enviada a menságem.
+
+
+
+Ecossistema
+
+- Kafka Connect
+    - Connectors
+
+- Confluent Schema Registry
+garante que a mensagem está no padrão determinado
+
+- Rest Proxy
+- ksqDB (banco de dados)
+- Streams (manipular informações)
+
+
+commands dockers
+
+
+docker exec -it simulator bash
+
+
+
+
+command go lang
+
+go mod init
+
+
+go mod init github.com/fabioramosalves/ImersaoFullStack-simulator
