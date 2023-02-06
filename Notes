@@ -64,6 +64,7 @@ docker exec -it simulator bash
 command go lang
 
 go mod init
-
-
+go run main.go
 go mod init github.com/fabioramosalves/ImersaoFullStack-simulator
+
+
