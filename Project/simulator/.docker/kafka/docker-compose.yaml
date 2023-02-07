@@ -1,11 +1,13 @@
 version: "3"
 
-services:  
+services:
 
   zookeeper:
     image: confluentinc/cp-zookeeper:latest
     environment:
       ZOOKEEPER_CLIENT_PORT: 2181
+    networks:
+      - fullcycle
     extra_hosts:
       - "host.docker.internal:172.17.0.1"
 
@@ -24,6 +26,8 @@ services:
       KAFKA_LISTENERS: INTERNAL://:9092,OUTSIDE://:9094
       KAFKA_ADVERTISED_LISTENERS: INTERNAL://kafka:9092,OUTSIDE://host.docker.internal:9094
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: INTERNAL:PLAINTEXT,OUTSIDE:PLAINTEXT
+    networks:
+      - fullcycle
     extra_hosts:
       - "host.docker.internal:172.17.0.1"
 
@@ -31,8 +35,15 @@ services:
     image: confluentinc/cp-kafka:latest
     depends_on:
       - kafka
+    networks:
+      - fullcycle
     command: >
       bash -c
         "sleep 5s &&
         kafka-topics --create --topic=route.new-direction --if-not-exists --bootstrap-server=kafka:9092 &&
         kafka-topics --create --topic=route.new-position --if-not-exists --bootstrap-server=kafka:9092"
+
+networks:
+  fullcycle:
+    name: fullcycle
+    external: true

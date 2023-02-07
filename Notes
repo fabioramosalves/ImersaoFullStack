@@ -58,12 +58,13 @@ garante que a mensagem está no padrão determinado
 
 commands dockers
 
+docker-compose up -d
+
+
+
 docker exec -it simulator bash
 
-
-
-
-docker exec -it kafka-kafka-1 bash
+docker exec -it apache-kafka-kafka-1 bash
 
 kafka-console-producer --bootstrap-server=localhost:9092 --topic=route.new-direction
 
@@ -80,3 +81,4 @@ go run main.go
 go mod init github.com/fabioramosalves/ImersaoFullStack-simulator
 
 
+{"clientId":"1","routeId":"1"}
